@@ -52,7 +52,6 @@ func TrimStr(str string, start int) string {
 	return ""
 }
 
-// 26
 func FuzzySign(text string, n int) string {
 	return TrimStr(text, n) + TruncateStr(text, n)
 }
