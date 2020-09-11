@@ -1,4 +1,4 @@
-package klib
+package widget
 
 import (
 	"math"
