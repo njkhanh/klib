@@ -10,5 +10,6 @@ type Menu struct {
 	IsHidden   bool
 	Permission string
 	Target     string
+	Params     []string
 	Children   []Menu
 }
