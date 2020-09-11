@@ -55,3 +55,8 @@ func TrimStr(str string, start int) string {
 func FuzzySign(text string, n int) string {
 	return TrimStr(text, n) + TruncateStr(text, n)
 }
+
+func RemoveHtmlTag(s string) string {
+	s = regexp.MustCompile(`<[\s\S]+?>`).ReplaceAllString(s, "")
+	return s
+}
