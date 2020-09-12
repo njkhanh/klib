@@ -8,6 +8,7 @@ type Menu struct {
 	Active     string
 	Activated  bool
 	IsHidden   bool
+	Flag       int
 	Permission string
 	Target     string
 	Params     []string
