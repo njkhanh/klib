@@ -12,9 +12,9 @@ type HeaderParameters struct {
 }
 
 type DefaultMessage struct {
-	ErrorCode int
-	Message   string
-	Data      interface{}
+	ErrorCode int         `json:"errorCode"`
+	Message   string      `json:"message"`
+	Data      interface{} `json:"data"`
 }
 
 func Sent(w http.ResponseWriter, data []byte, err error, param HeaderParameters) {
