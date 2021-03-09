@@ -7,22 +7,20 @@ import (
 	"net/http"
 )
 
-type HeaderParameters struct {
-	CORS string
-}
-
 type DefaultMessage struct {
 	ErrorCode int         `json:"errorCode"`
 	Message   string      `json:"message"`
 	Data      interface{} `json:"data"`
 }
 
-func Sent(w http.ResponseWriter, data []byte, err error, param HeaderParameters) {
+func Sent(w http.ResponseWriter, data []byte, err error, params map[string]string) {
 	if err == nil {
 		w.Header().Set("Content-Type", "application/json;charset=UTF-8")
 
-		if len(param.CORS) > 0 {
-			w.Header().Set("Access-Control-Allow-Origin", param.CORS)
+		if len(params) > 0 {
+			for key, val := range params {
+				w.Header().Set(key, val)
+			}
 		}
 
 		w.WriteHeader(http.StatusOK)
