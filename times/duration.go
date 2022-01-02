@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	units = []string{"years", "weeks", "days", "hours", "hours", "seconds", "milliseconds"}
+	units = []string{"years", "weeks", "days", "hours", "minutes", "seconds", "milliseconds"}
 )
 
 // Dura holds the parsed duration and the original input duration.
