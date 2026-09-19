@@ -59,10 +59,21 @@ func RenderPaginator(current int, totalResults int, per int, param string, url s
 		paginator.Next = current + 1
 	}
 
-	for i := 1; i <= total; i++ {
-		if total < percentage*2 || (i >= current-percentage && i <= current+percentage) || (current > percentage*2 && total-i < percentage*2 && total-current < percentage*2) {
-			paginator.Pages = append(paginator.Pages, i)
-		}
+	start, end := current-percentage, current+percentage
+	if start < 1 {
+		end += 1 - start
+		start = 1
+	}
+	if end > total {
+		start -= end - total
+		end = total
+	}
+	if start < 1 {
+		start = 1
+	}
+
+	for i := start; i <= end; i++ {
+		paginator.Pages = append(paginator.Pages, i)
 	}
 
 	if total > percentage*2 {
